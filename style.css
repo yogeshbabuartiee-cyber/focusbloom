@@ -1,0 +1,110 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background-color:rgb(61, 61, 154);
+    color:white;
+    padding:20px;
+    min-height:2px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+main{
+    width:100%;
+}
+body > header, 
+body> main{
+    max-width:850px;
+    margin:0 auto;
+}
+
+.header{
+    max-width:850px;
+    margin:0 auto 25px;
+    padding: 22px;
+    background-color:#704fc4;
+    text-align:center;
+    border-radius:18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+.logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+div{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+.logo span{
+    font-size:40px;
+}
+.logo h1{
+    color: #0efe5a;
+    font-size:45px;
+}
+.header > p{
+    color: #718075;
+    margin-bottom:20px;
+}
+.header-buttons{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+}
+button{
+    background-color:#2d0987;
+    color:white;
+    border:none;
+    border-radius:45px;
+    width:100px;
+    height:25px;
+    font-family:cursive;
+    font-size:12px;
+    cursor:pointer;
+    transition:background-color 0.2s,transform 0.2s;
+}
+button:hover{
+    background-color:#6818f2;
+    transform:translateY(-3px);
+}
+.timer-section{
+    margin:20px;
+    background-color:#704fc4;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0, 0, 0, 0.06);
+}
+.timer-section >h2{
+    font-family:serif;
+    font-size:50px;
+    margin-top:20px;
+    padding:30px;
+    padding-bottom:0px;
+    color:rgb(185, 181, 213);
+}
+.timer-section >p {
+    font-size:18px;
+    padding-top:5px;
+    padding-bottom:20px;
+    color:#718075;
+    margin-bottom:15px;
+}
+.timer-modes{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding-top:0px;
+    margin-top:2px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+}

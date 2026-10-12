@@ -7,6 +7,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header>
+        <div class="logo">
+            <span>🌱</span>
+            <h1>FOCUS BLOOM</h1>
+        </div>
+        <p>Time to grow your focus</p>
+        <div class="header-buttons">
+            <button id="notification-btn" type="button"> notifications</button>
+            <button id="theme-btn" type="button"> 🌙 theme</button>
+            <button id="settings-btn" type="button"> ⚙️ settings</button>
+        </div>
+    </header>
+    <main>
+        <section class="timer-section">
+            <h2>here YOURS</h2>
+            <p>create your own TIME.. </p>
+            <div class="timer-modes">
+                <button class="mode-btn" id="focusmode" type="button">focus</button>
+                <button class="mode-btn" id="breakmode" type="button">break</button>
+                <button class="mode-btn" id="free-stylemode" type="button">free-style</button>
+            </div>
+            <div class="timer-display">
+                <p id="modellabel"></p>
+                <h2 id="timer">00:00</h2>
+                <p id="time-status">Ready!!</p>
+            </div>
+            <div class="timer-controls">
+                <button id="start-btn" type="button">start</button>
+                <button id="stop-btn"  type="button">stop</button>
+                <button id="reset-btn" type="button">reset</button>
+            </div>
+            <div class="session-progress">
+                <h3>Session Progress</h3>
+                <p>
+                    completedsessions:
+                    <strong id="session-count">0</strong>
+                </p>
+                <p>
+                    session-remain:
+                    <strong id="session-remain">0</strong>
+                </p>
+            </div>
+        </section>
+    </main>
+    <script src="index.js"></script>
 </body>
 </html>
