@@ -13,6 +13,7 @@ body{
 }
 main{
     width:100%;
+    min-height: 600px;
 }
 body > header, 
 body> main{
@@ -36,29 +37,28 @@ body> main{
     gap:10px;
     margin-bottom:10px;
 }
-div{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin-bottom:10px;
-}
+
 .logo span{
     font-size:40px;
 }
 .logo h1{
-    color: #0efe5a;
+    color: #a4ae15;
     font-size:45px;
 }
-.header > p{
-    color: #718075;
+header > p{
+    display:block;
+    width:100%;
+    color: #ad90e8;
     margin-bottom:20px;
+    text-align: center;
 }
 .header-buttons{
+    margin-top:20px;
     display:flex;
     align-items:center;
     justify-content:center;
     gap:15px;
+    flex-wrap: wrap;
 }
 button{
     background-color:#2d0987;
@@ -85,18 +85,18 @@ button:hover{
 }
 .timer-section >h2{
     font-family:serif;
-    font-size:50px;
+    font-size:30px;
     margin-top:20px;
-    padding:30px;
+    padding:15px;
     padding-bottom:0px;
     color:rgb(185, 181, 213);
 }
 .timer-section >p {
     font-size:18px;
     padding-top:5px;
-    padding-bottom:20px;
+    padding-bottom:10px;
     color:#718075;
-    margin-bottom:15px;
+    margin-bottom:5px;
 }
 .timer-modes{
     display:flex;
@@ -107,4 +107,121 @@ button:hover{
     margin-top:2px;
     margin-bottom:20px;
     flex-wrap:wrap;
+}
+.mode-btn{
+    color:white;
+}
+.mode-btn.active{
+    background-color:#ad520d;
+    color:wheat;
+}
+.timer-display{
+    background-color:#4e3985;
+    min-height:250px;
+    width:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    max-width:100%;
+    border: 5px solid black;
+    border-radius:10px;
+    margin:25px;
+}
+#modellabel{
+    color:rgb(142, 64, 246);
+    font-size:30px;
+    margin-bottom:12px;
+    font-family:monospace;
+}
+#timer{
+    font-size:85px;
+    color:yellow;
+    letter-spacing:5px;
+    margin-bottom:10px;
+}
+#timer-status{
+    font-size:20px;
+    color:rgb(245, 245, 136)
+}
+.timer-controls{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:30px;
+}
+.timer-controls #start-btn{
+    background-color:#2d0987;
+    color:white;
+}
+.timer-controls #start-btn:hover{
+    background-color:#6818f2;
+}
+.timer-controls #pause-btn{
+    background-color:#2d0987;
+    color:white;
+}
+.timer-controls #pause-btn:hover{
+    background-color:#6818f2;
+}
+.timer-controls #reset-btn{
+    background-color:#2d0987;
+    color:white;
+}
+.timer-controls #reset-btn:hover{
+    background-color:#6818f2;
+}
+.session-progress{
+    display:block;
+    align-items: center;
+    justify-content:center;
+    gap:25px;
+    margin-bottom:30px;
+    padding:20px;
+    margin:20px;
+    background-color: #ad520d;
+    border-radius:20px;
+    border: 2px solid white;
+
+}
+
+.session-progress > h3{
+    color:rgb(29, 137, 204);
+}
+button:focus{
+    outline:3px  solid rgb(37, 4, 83);
+    outline-offset:3px;
+}
+@media(max-width:480px)
+{
+    body{
+        padding:14px 10px;
+    }
+    .header{
+        padding:18px 12px;
+    }
+    .logo h1{
+        font-size:25px;
+    }
+    .header-buttons button{
+        padding:10px;
+    }
+    .timer-section{
+        padding:25px 12px;
+    }
+    .timer-section>h2{
+        font-size: 23px;
+    }
+    .timer-display{
+        width:230px;
+        min-height:230px;
+    }
+    #timer{
+        font-size:45px;
+    }
+    .timer-controls button{
+        padding:10px 12px;
+    }
 }
