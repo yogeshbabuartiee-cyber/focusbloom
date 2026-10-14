@@ -147,10 +147,5 @@ changemode("focus");
 updatesessionprogress();
 
 
-function timer()
-{
-    console.log("hello world");
-    console.log("it is new to this")
-    console.log("it is not a great life")
-}
+
 
