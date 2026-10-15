@@ -45,6 +45,9 @@ body> main{
     color: #a4ae15;
     font-size:45px;
 }
+section{
+    padding:10px;
+}
 header > p{
     display:block;
     width:100%;
@@ -224,4 +227,41 @@ button:focus{
     .timer-controls button{
         padding:10px 12px;
     }
+}
+.tasksection{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background-color: #120338;
+    padding:20px;
+    border-radius: 20px;
+
+}
+.tasksection h2{
+    padding:10px;
+}
+.tasksection p{
+    padding:10px;
+}
+.tasksection input{
+    max-width:400px;
+    width:100%;
+    height:30px;
+    margin-bottom: 20px;
+    border:none;
+    border-radius: 10px;
+    box-sizing:border-box;
+}
+
+#tasklist{
+    list-style:none;
+    padding:0;
+    width:100%;
+    max-width:450px;
+}
+
+#tasklist li{
+    display:flex;
+    flex-direction:row;
 }

@@ -14,7 +14,7 @@
         </div>
         <p>time to step in..!!!</p>
         <div class="header-buttons">
-            <button id="notification-btn" type="button"> notifications</button>
+            <button id="notification-btn" type="button">🔔 notifications</button>
             <button id="theme-btn" type="button"> 🌙 theme</button>
             <button id="settings-btn" type="button"> ⚙️ settings</button>
         </div>
@@ -49,6 +49,19 @@
                     <strong id="session-remain">0</strong>
                 </p>
             </div>
+        </section>
+        <section class="tasksection">
+            <h2>My Tasks</h2>
+            <p>Small tasks  lead a big progress.</p>
+
+            <form id="taskform">
+                <input type="text" id="taskinput"
+                placeholder="enter a task.." required>
+                
+                <button type="submit"> Add task</button>
+            </form>
+            <p id="taskcount"> 0   tasks remaining</p>
+            <ul id="tasklist"></ul>
         </section>
     </main>
     <script src="index.js"></script>

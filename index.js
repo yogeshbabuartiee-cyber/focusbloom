@@ -17,6 +17,11 @@ const resetbtn=document.getElementById("reset-btn");
 const sessioncount=document.getElementById("session-count");
 const sessionremain=document.getElementById("session-remain");
 
+const taskform=document.getElementById("taskform");
+const taskinput=document.getElementById("taskinput");
+const tasklist=document.getElementById("tasklist");
+const taskcount=document.getElementById("taskcount");
+
 const modes={
     focus:{
         label:"Focus Time",
@@ -80,15 +85,52 @@ function starttimer()
                     completedsessions
                 );
                 updatesessionprogress();
+                shownotification("focus session complete! time for a break.")
                 timerstatus.textContent="focus session completed";
+
+                const nextmode=
+                completedsessions%4==0?"longBreak" : "shortBreak";
+
+                changemode(nextmode);
+                timerstatus.textContent=modes[nextmode].label+" is ready.Click start.";
 
             }
             else{
+                shownotification("break complete! ready to focus again");
+                changemode("focus")
                 timerstatus.textContent="break completed!";
             }
         }
     },1000);
 }
+
+notificationbtn.addEventListener("click",async function()
+{
+    if(!("Notification" in window)){
+        timerstatus.textContent="Notifications are not supported.";
+        return;
+    }
+    const permission=await Notification.requestPermission();
+    if(permission==="granted")
+    {
+        notificationbtn.textContent="Notifications Enabled";
+        timerstatus.textContent="Notifications enabled";
+    }
+    else{
+        timerstatus.textContent="notifications permission not granted";
+    }
+})
+function shownotification(message){
+    if("Notification" in window && Notification.permission ==="granted"){
+        new Notification("FocusBloom",{
+            body:message
+        })
+    }
+}
+
+
+
+
 
 function pausetimer()
 {
@@ -146,6 +188,76 @@ freestylemode.addEventListener("click",function()
 changemode("focus");
 updatesessionprogress();
 
+
+let tasks=JSON.parse(localStorage.getItem("focusbloomtasks")) || [];
+
+function savetasks(){
+    localStorage.setItem("focusbloomtasks",JSON.stringify(tasks));
+}
+
+function rendertasks()
+{
+    tasklist.innerHTML="";
+
+    tasks.forEach( function (task){
+    const li=document.createElement("li");
+    const checkbox=document.createElement("input");
+    const span=document.createElement("span");
+    const deletebtn=document.createElement("button");
+
+    checkbox.type="checkbox";
+    checkbox.checked=task.completed;
+
+    span.textContent=task.text;
+    deletebtn.textContent="delete";
+    deletebtn.className="delete-task";
+    deletebtn.type="button";
+
+    if(task.completed){
+        li.classList.add("completed");
+    }
+
+    checkbox.addEventListener("change",function(){
+        task.completed=checkbox.checked;
+        savetasks();
+        rendertasks();
+    })
+    deletebtn.addEventListener("click",function(){
+        tasks=tasks.filter(function(item){
+            return item.id!=task.id;
+        });
+        savetasks();
+        rendertasks();
+    })
+    li.append(checkbox,span,deletebtn);
+    tasklist.appendChild(li);
+  });
+  const remaining=tasks.filter(function(task){
+    return !task.completed;
+  }).length;
+
+  taskcount.textContent=remaining+"tasks remaining";
+
+}
+
+taskform.addEventListener("submit",function(event){
+    event.preventDefault();
+    const text=taskinput.value.trim();
+
+    if(text===""){
+        return;
+    }
+    tasks.push({
+        id:Date.now(),
+        text:text,
+        completed:false
+    });
+    savetasks();
+    rendertasks();
+    taskinput.value=""
+    taskinput.focus();
+});
+rendertasks();
 
 
 
